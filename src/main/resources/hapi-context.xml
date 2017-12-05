@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<context:route-scan-package>com.github.taixiongliu.hapidemo.route</context:route-scan-package>
+	<context:port>8100</context:port>
+</beans>
