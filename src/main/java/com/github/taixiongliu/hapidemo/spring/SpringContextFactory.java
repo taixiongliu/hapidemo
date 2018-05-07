@@ -25,7 +25,10 @@ public class SpringContextFactory {
 		actx = new ClassPathXmlApplicationContext(configLocation);
 	}
 	
-	public <T> T getBean(Class<T> clazz){
+	public <T> T getBean(Class<T> clazz) throws Exception{
+		if(actx == null){
+			throw new Exception("Spring Application Context not initialized...");
+		}
 		return actx.getBean(clazz);
 	}
 }

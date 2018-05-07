@@ -32,8 +32,16 @@ public class MyRoute {
 		System.out.println("parameter value (e.g: request url 'http://127.0.0.1/index?parameter=123'): "+parameter);
 		response.setHead("authentication", "id card");
 		
-		UserService service = SpringContextFactory.getInstance().getBean(UserService.class);
-		service.getUserByAccount("database account");
+		UserService service = null;
+		try {
+			service = SpringContextFactory.getInstance().getBean(UserService.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(service != null){
+			service.getUserByAccount("database account");
+		}
 		
 		// response content
 		response.setContent("hi partner...");
