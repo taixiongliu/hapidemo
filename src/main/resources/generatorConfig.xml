@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- Mybatis代码自动生成工具 需要根据实际数据库连接和路径配置 -->
+
+<!-- 自动生成mapper的代码 -->
+<generatorConfiguration>
+  <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+    <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+      <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+      <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+      <property name="caseSensitive" value="true"/>
+    </plugin>
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://localhost:3306/demo?useSSL=false&amp;characterEncoding=utf8"
+                    userId="root"
+                    password="root">
+    </jdbcConnection>
+    <!-- java bean 包路径  项目路径 -->
+    <javaModelGenerator targetPackage="game.module.db.entity" targetProject="E:\workspace\hapidemo\src\main\java"/>
+    <!-- 映射文件  包路径  项目路径 -->
+    <sqlMapGenerator targetPackage="sqlMapper"  targetProject="E:\workspace\hapidemo\src\main\resources"/>
+    <!-- Mapper文件 包路径 项目路径 -->
+    <javaClientGenerator targetPackage="game.module.db.dao" targetProject="E:\workspace\hapidemo\src\main\java" type="XMLMAPPER" />
+
+	<!-- 配置需要导入的表。%代表通配符 -->
+    <table tableName="role" >
+      <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+    </table>
+    
+  </context>
+</generatorConfiguration>

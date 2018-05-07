@@ -4,6 +4,8 @@ import com.github.taixiongliu.hapi.http.HapiHttpRequest;
 import com.github.taixiongliu.hapi.http.HapiHttpResponse;
 import com.github.taixiongliu.hapi.route.RequestMapping;
 import com.github.taixiongliu.hapi.route.Route;
+import com.github.taixiongliu.hapidemo.service.UserService;
+import com.github.taixiongliu.hapidemo.spring.SpringContextFactory;
 
 /**
  * <b>route controller look like directory</b>
@@ -29,6 +31,10 @@ public class MyRoute {
 		String parameter = request.getParameter("parameter");
 		System.out.println("parameter value (e.g: request url 'http://127.0.0.1/index?parameter=123'): "+parameter);
 		response.setHead("authentication", "id card");
+		
+		UserService service = SpringContextFactory.getInstance().getBean(UserService.class);
+		service.getUserByAccount("database account");
+		
 		// response content
 		response.setContent("hi partner...");
 	}
