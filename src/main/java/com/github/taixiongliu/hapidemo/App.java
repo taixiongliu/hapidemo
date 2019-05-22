@@ -23,12 +23,12 @@ public class App
     	//HapiHttpContextFactory.getInstance().createContext("hapi-context.xml",Self.class extends BaseHapiHttpRequestImpl) post content yourself
         //HapiHttpContextFactory.getInstance().createContext("hapi-context.xml");
         
-        File file = new File("src/main/resources/hapi.keystore");//--test
-        //File file = new File("hapi.keystore");//--server
+        //File file = new File("src/main/resources/hapi.keystore");//--test
+        File file = new File("hapi.keystore");//--release
         System.out.println(file.exists());
         
         //support protocol https.
-        KeystoreEntity entity = new KeystoreEntity("src/main/resources/hapi.keystore","123456","123456");
+        KeystoreEntity entity = new KeystoreEntity("hapi.keystore","123456","123456");
         HapiHttpContextFactory.getInstance().buildHttps(entity).createContext("hapi-context.xml");
         
         //request http test url: http://127.0.0.1:8100/index?parameter=123
