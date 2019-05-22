@@ -29,7 +29,7 @@ public class MyRoute {
 		String requestIp = request.getIpAddress();
 		System.out.println("request ip address: "+requestIp);
 		String parameter = request.getParameter("parameter");
-		System.out.println("parameter value (e.g: request url 'http://127.0.0.1/index?parameter=123'): "+parameter);
+		System.out.println("parameter value: "+parameter);
 		response.setHead("authentication", "id card");
 		
 		UserService service = null;
